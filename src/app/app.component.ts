@@ -12,4 +12,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HelloWorldApp';
+  i = 5;
+
+  clickButton(){
+    this.i = this.i+1;
+  }
+
 }

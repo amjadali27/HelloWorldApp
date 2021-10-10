@@ -1,4 +1,4 @@
-import{Component} from '@angular/core'
+import{AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit} from '@angular/core'
 
 @Component({
     selector: 'test-app',
@@ -11,6 +11,38 @@ import{Component} from '@angular/core'
 //     styles: ['h3{text-align:center;}','p{color:blue}p{text-align:center}']
 })
 
-export class TestAppComponent{
+export class TestAppComponent implements OnInit,OnChanges,DoCheck,AfterContentInit,AfterContentChecked
+,AfterViewInit,AfterViewChecked,OnDestroy{
+
+    @Input() num : number;
+    
+    constructor(){
+        this.num = 0;
+        alert('constructor invoked');
+    }
+    ngOnDestroy(): void {
+        alert('On Destroy Hook Called');
+    }
+    ngAfterViewChecked(){
+        alert('After View Checked Hook Called');
+    }
+    ngAfterViewInit(){
+       alert('After View Init Hook Called');
+    }
+    ngAfterContentChecked(){
+         alert('After Content Checked Hook Called');
+    }
+    ngAfterContentInit() {
+        alert('After Content Init Hook Called');
+    }
+    ngDoCheck(){
+       alert('Do Check Hook invoked');
+    }
+    ngOnChanges(){
+        alert('OnChanges Hook invoked');
+    }
+    ngOnInit(){
+        alert('OnInit Hook invoked');
+    }
     title="Test App";
 }
